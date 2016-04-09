@@ -11,12 +11,13 @@
 <script language="javascript">
   base_request("GET", "http://"+window.location.host+"/config.json", undefined, load_config, document.getElementById("notification"));
 
-function load_config(data)
+function load_config(data, target)
 {
   list = Object.keys(data);
   for (var i in list) {
     v = list[i];
     Cookies.set(v, data[v]);
+    target.innerHTML += "load config: "+v+" = "+data[v];
   }
 }
 </script>

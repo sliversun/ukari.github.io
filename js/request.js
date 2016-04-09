@@ -1,8 +1,8 @@
 function base_callback(processfn, data, target)
 {
   var result = JSON.parse(data);
+  console.log(data+" --> "+result);
   if (processfn == undefined) {
-    console.log(data);
     return;
   }
 
@@ -22,7 +22,6 @@ function base_callback(processfn, data, target)
     }
   } else {
     processfn(result);
-    console.log(data+" --> "+result);
   }
 }
 
