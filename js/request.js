@@ -29,22 +29,28 @@ function base_callback(processfn, data, target)
 function base_request(method, url, data, processfn, target)
 {
   var forsend;
+  var dsturl;
   if (method.toUpperCase() == "GET") {
     forsend = "data="+JSON.stringify(data);
-    url = url+"?"+forsend;
+    dsturl = url+"?"+forsend;
   }else if (method.toUpperCase() == "POST") {
     forsend = JSON.stringify(data);
+    dsturl = url;
   }else if (method.toUpperCase() == "PUT") {
-                forsend = JSON.stringify(data);
+    forsend = JSON.stringify(data);
+    dsturl = url;
   }else if (method.toUpperCase() == "DELETE") {
     forsend = JSON.stringify(data);
+    dsturl = url;
   }else{
     forsend = JSON.stringify(data);
+    dsturl = url;
     console.log("XMLHttpRequest open method error");
     return;
   }
   var xhttp=new XMLHttpRequest();
-  xhttp.open(method, url, true);
+  xhttp.open(method, dsturl, true);
+  console.log("dst: "+dsturl);
   xhttp.onreadystatechange=function ()
   {
     if (xhttp.readyState == 4) {
