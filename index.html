@@ -7,6 +7,15 @@
   </body>
 </html>
 <script src="js/request.js" type="text/javascript"></script>
+<script src="js/js.cookie.js" type="text/javascript"></script>
 <script language="javascript">
-  base_request("GET", "http://"+window.location.host+"/config.json", "",undefined, document.getElementById("notification"));
+  base_request("GET", "http://"+window.location.host+"/config.json", undefined, load_config, document.getElementById("notification"));
+
+function load_config(data)
+{
+  list = Object.keys(data);
+  for each (i in list) {
+    Cookies.set(i, data[i]);
+  }
+}
 </script>

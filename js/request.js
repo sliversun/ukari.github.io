@@ -32,7 +32,11 @@ function base_request(method, url, data, processfn, target)
   var dsturl;
   if (method.toUpperCase() == "GET") {
     forsend = "data="+JSON.stringify(data);
-    dsturl = url+"?"+forsend;
+    if (data != undefined) {
+      dsturl = url+"?"+forsend;
+    } else {
+      dsturl = url;
+    }
   }else if (method.toUpperCase() == "POST") {
     forsend = JSON.stringify(data);
     dsturl = url;
