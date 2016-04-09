@@ -10,19 +10,19 @@ function base_callback(processfn, data, target)
     target.innerHTML = "";
     if (result["error"] != "nil") {
       target.innerHTML = result["error"];
-      processfn(target, result);
+      processfn(result, target);
     } else if (result["array"] != undefined && result["array"].length != 0) {
       for (var i in result["array"]) {
-        processfn(target, result, i);
+        processfn(result, target, i);
       }
     } else if (result["array"] != undefined && result["array"].length == 0) {
-      processfn(target, result);
+      processfn(result, target);
     } else {
-      processfn(target, result);
+      processfn(result, target);
     }
   } else {
     processfn(result);
-    console.log(data);
+    console.log(data+" --> "+result);
   }
 }
 
