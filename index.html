@@ -14,7 +14,7 @@
 function load_config(data)
 {
   list = Object.keys(data);
-  for each (var i in list) {
+  for (var i in list) {
     Cookies.set(i, data[i]);
   }
 }
