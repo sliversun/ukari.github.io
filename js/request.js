@@ -8,18 +8,7 @@ function base_callback(processfn, data, target)
 
   if (target != undefined){
     target.innerHTML = "";
-    if (result["error"] != "nil") {
-      target.innerHTML = result["error"];
-      processfn(result, target);
-    } else if (result["array"] != undefined && result["array"].length != 0) {
-      for (var i in result["array"]) {
-        processfn(result, target, i);
-      }
-    } else if (result["array"] != undefined && result["array"].length == 0) {
-      processfn(result, target);
-    } else {
-      processfn(result, target);
-    }
+    processfn(result, target);
   } else {
     processfn(result);
   }

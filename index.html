@@ -17,7 +17,12 @@ function load_config(data, target)
   for (var i in list) {
     v = list[i];
     Cookies.set(v, data[v]);
-    target.innerHTML += "load config: "+v+" = "+data[v];
+    target.innerHTML += newline()+"load config: "+v+" = "+data[v];
   }
+}
+
+function newline()
+{
+  return "<br>";
 }
 </script>
