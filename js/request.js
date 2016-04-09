@@ -6,7 +6,7 @@ function base_callback(processfn, data, target)
     return;
   }
 
-  if (target != null){
+  if (target != undefined){
     target.innerHTML = "";
     if (result["error"] != "nil") {
       target.innerHTML = result["error"];
@@ -21,7 +21,7 @@ function base_callback(processfn, data, target)
       processfn(target, result);
     }
   } else {
-    processfn(target, result);
+    processfn(result);
     console.log(data);
   }
 }
