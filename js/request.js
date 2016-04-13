@@ -1,7 +1,7 @@
 function base_callback(processfn, data, target)
 {
   var result = JSON.parse(data);
-  console.log(data+" --> "+result);
+  //console.log(data+" --> "+result);
   if (processfn == undefined) {
     return;
   }
@@ -51,7 +51,7 @@ function base_request(method, url, data, processfn, target)
         console.log("received: \n\t"+data);
         base_callback(processfn, data, target);
       } else {
-        if (target != null){
+        if (target != undefined){
           target.innerHTML = "";
         }
         console.log("can't connect to server");

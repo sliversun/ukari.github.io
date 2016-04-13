@@ -27,13 +27,13 @@ function get_gists(data)
 {
   var gist = data[0]["files"][Object.keys(data[0]["files"])];
   var b = new blog(gist);
-  console.log(b.title);
+  console.log(b.title+" "+b.raw_url);
 }
 
 function blog(gist)
 {
-  var title = gist["filename"];
-  var raw_url = gist["raw_url"];
+  this.title = gist["filename"];
+  this.raw_url = gist["raw_url"];
 }
 
 function gist_url()
