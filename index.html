@@ -40,7 +40,7 @@ function article(file)
   this.title = gist["filename"];
   this.raw_url = gist["raw_url"];
   var des = file["description"];
-  this.description = des.substring(des.indexOf(" "), des.length - des.indexOf(" "));
+  this.description = des.substring(des.indexOf(" ") + 1, des.length);
 }
 
 function articlep(file)
