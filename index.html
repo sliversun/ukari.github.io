@@ -13,9 +13,9 @@
 
 function load_config(data, target)
 {
-  list = Object.keys(data);
+  var list = Object.keys(data);
   for (var i in list) {
-    v = list[i];
+    var v = list[i];
     Cookies.set(v, data[v]);
     target.innerHTML += "load config: "+v+" = "+data[v]+newline();
   }
@@ -25,7 +25,15 @@ base_request("GET", gist_url(), undefined, get_gists, undefined);
 
 function get_gists(data)
 {
-  console.log("filename"+data[0]["files"]["filename"]);
+  var gist = data[0]["files"][Object.keys(data[0]["files"])];
+  var blog = new blog(gist);
+  console.log(blog.title);
+}
+
+function blog(gist)
+{
+  var title = gist["filename"];
+  var raw_url = gist["raw_url"];
 }
 
 function gist_url()
