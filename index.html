@@ -17,12 +17,26 @@ function load_config(data, target)
   for (var i in list) {
     v = list[i];
     Cookies.set(v, data[v]);
-    target.innerHTML += newline()+"load config: "+v+" = "+data[v];
+    target.innerHTML += "load config: "+v+" = "+data[v]+newline();
   }
+}
+
+base_request("GET", gist_url(), undefined, get_gists, undefined);
+
+function get_gists(data)
+{
+  console.log("filename"+data[0]["filename"]);
+}
+
+function gist_url()
+{
+  var github_username = Cookies.get("github_username");
+  gist_url = "https://api.github.com/users/"+github_username+"/gists";
 }
 
 function newline()
 {
   return "<br>";
 }
+
 </script>
