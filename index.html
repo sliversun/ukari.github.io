@@ -26,8 +26,12 @@ base_request("GET", gist_url(), undefined, get_gists, undefined);
 function get_gists(data)
 {
   var file = data[0];
-  var b = new article(file);
-  console.log(b.title+" "+b.raw_url);
+  for (int i = 0; i < data.length; i += 1) {
+    if (articlep(data[i])) {
+      var a = new article(data[i]);
+      console.log(b.title+" "+b.description+" "+b.raw_url);
+    }
+  }
 }
 
 function article(file)
@@ -35,7 +39,15 @@ function article(file)
   var gist = file["files"][Object.keys(file["files"])];
   this.title = gist["filename"];
   this.raw_url = gist["raw_url"];
-  this.description = file["description"];
+  var des = file["description"];
+  this.description = des.substring(des.indexOf(" "), des.length - des.indexOf(" "));
+}
+
+function articlep(file)
+{
+  var description = file["description"];
+  var shebang = description.substring(0,description.indexOf(" "));
+  return shebang == "#!unmj";
 }
 
 function gist_url()
