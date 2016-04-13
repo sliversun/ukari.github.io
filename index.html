@@ -25,7 +25,7 @@ base_request("GET", gist_url(), undefined, get_gists, undefined);
 
 function get_gists(data)
 {
-  console.log("filename"+data[0]["filename"]);
+  console.log("filename"+data[0]["files"]["filename"]);
 }
 
 function gist_url()
