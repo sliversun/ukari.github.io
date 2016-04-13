@@ -32,7 +32,7 @@ function get_gists(data)
 
 function article(file)
 {
-  var gist = file["files"][Object.keys("files")];
+  var gist = file["files"][Object.keys(file["files"])];
   this.title = gist["filename"];
   this.raw_url = gist["raw_url"];
   this.description = file["description"];
