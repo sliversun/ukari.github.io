@@ -26,8 +26,8 @@ base_request("GET", gist_url(), undefined, get_gists, undefined);
 function get_gists(data)
 {
   var gist = data[0]["files"][Object.keys(data[0]["files"])];
-  var blog = new blog(gist);
-  console.log(blog.title);
+  var b = new blog(gist);
+  console.log(b.title);
 }
 
 function blog(gist)
