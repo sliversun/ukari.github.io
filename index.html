@@ -31,7 +31,8 @@ function get_gists(data)
 function gist_url()
 {
   var github_username = Cookies.get("github_username");
-  gist_url = "https://api.github.com/users/"+github_username+"/gists";
+  var gist_url = "https://api.github.com/users/"+github_username+"/gists";
+  return gist_url;
 }
 
 function newline()
