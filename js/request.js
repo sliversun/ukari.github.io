@@ -7,7 +7,7 @@ function base_callback(processfn, data, target)
   }
 
   if (target != undefined){
-    //target.innerHTML = "";
+    target.innerHTML = "";
     processfn(result, target);
   } else {
     processfn(result);
