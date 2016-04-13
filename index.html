@@ -25,15 +25,17 @@ base_request("GET", gist_url(), undefined, get_gists, undefined);
 
 function get_gists(data)
 {
-  var gist = data[0]["files"][Object.keys(data[0]["files"])];
-  var b = new blog(gist);
+  var file = data[0];
+  var b = new article(file);
   console.log(b.title+" "+b.raw_url);
 }
 
-function blog(gist)
+function article(file)
 {
+  var gist = file["files"][Object.keys("files")];
   this.title = gist["filename"];
   this.raw_url = gist["raw_url"];
+  this.description = file["description"];
 }
 
 function gist_url()
