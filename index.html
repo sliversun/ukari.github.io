@@ -29,7 +29,7 @@ function get_gists(data)
   for (var i = 0; i < data.length; i += 1) {
     if (articlep(data[i])) {
       var a = new article(data[i]);
-      console.log(b.title+" "+b.description+" "+b.raw_url);
+      console.log(a.title+" "+a.description+" "+a.raw_url);
     }
   }
 }
