@@ -18,5 +18,5 @@ function extend(des, src, override)
 
 function getUTCTime(time)
 {
-        return ((new Date("2016-04-13T19:55:29Z").toLocaleString());
+        return ((new Date(time).toLocaleString());
 }
