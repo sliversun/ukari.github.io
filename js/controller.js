@@ -41,8 +41,8 @@ function get_article(data, target)
     buf += divtag("back", "返回", "hide_other_containers_by_id", "article_lists");
     buf += divtag("article",
                   divtag("title", article.title) +
-                  divtag("create_time", article.create_time) +
-                  divtag("update_time", article.update_time) +
+                  divtag("create_time", getUTCtime(article.create_time)) +
+                  divtag("update_time", getUTCtime(article.update_time)) +
                   divtag("content", article.content));
     target.innerHTML = buf;
   }
