@@ -23,7 +23,7 @@ function base_request(method, url, headers, data, processfn, target)
     var tmp = "";
     for (var i = 0; i < list.length; i += 1) {
       tmp += escape(list[i]) + "=" + escape(data[list[i]]);
-      if (i != list.length) {
+      if (i != list.length - 1) {
         tmp += "&";
       }
     }
