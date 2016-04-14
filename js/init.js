@@ -1,6 +1,6 @@
 var hide_other_containers = regist_container_hide_controller(["article_lists", "article_container"]);
 var hide_other_containers_by_id = function (id) {hide_other_containers(document.getElementById(id));};
-base_request("GET", "http://"+window.location.host+"/config.json", undefined, load_config, document.getElementById("notification"));
+wrap_request("GET", "http://"+window.location.host+"/config.json", undefined, load_config, document.getElementById("notification"));
 
 function load_config(data, target)
 {
@@ -28,4 +28,11 @@ function regist_container_hide_controller(list)
       }
     }
   };
+}
+
+function change_title()
+{
+  var title = document.getElementById("title");
+  personal_title = Cookies.get("github_username") +"'s " + title.innerHTML;
+  title.innerHTML = personal_title;
 }

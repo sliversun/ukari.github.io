@@ -8,9 +8,9 @@ function extend(des, src, override)
                         extend(copy, src[i], override);
                 }
         }
-        for (var i in src) {
-                if (override || !(i in copy)) {
-                        copy[i] = src[i];
+        for (var j in src) {
+                if (override || !(j in copy)) {
+                        copy[j] = src[j];
                 }
         }
         return copy;
@@ -19,4 +19,9 @@ function extend(des, src, override)
 function getUTCTime(time)
 {
         return (new Date(time).toLocaleString());
+}
+
+function random_arg()
+{
+  return {"avoidpending":Math.random().toString()};
 }

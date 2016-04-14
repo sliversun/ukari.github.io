@@ -61,3 +61,14 @@ function base_request(method, url, data, processfn, target)
   xhttp.send(forsend);
   console.log("send:\n\t"+forsend);
 }
+
+function wrap_request(method, url, data, processfn, target)
+{
+  var wrap_data;
+  if (data == undefined) {
+    wrap_data = random_arg();
+  } else {
+    wrap_data = extend(data, random_arg());
+  }
+  base_request(method, url, wrap_data, processfn, target);
+}
