@@ -17,6 +17,7 @@
 <script src="js/request.js" type="text/javascript"></script>
 <script src="js/js.cookie.js" type="text/javascript"></script>
 <script language="javascript">
+  var close_all_containers = regist_container_hide_controller(["article_lists", "article_container"]);
      base_request("GET", "http://"+window.location.host+"/config.json", undefined, load_config, document.getElementById("notification"));
 
      function load_config(data, target)
@@ -33,6 +34,7 @@
 
      function get_articles(data, target)
      {
+       close_all_containers();
        var file = data[0];
        var articles = new Array();
        for (var i = 0; i < data.length; i += 1) {
@@ -62,6 +64,7 @@
 
      function get_article(data, target)
      {
+       close_all_containers();
        var article = new Article(data);
        show_article(article, target);
        function show_article(article, target)
@@ -130,4 +133,17 @@
        return "<br>";
      }
 
+     function regist_container_hide_controller(list)
+     {
+       var containers = new Array();
+       for (int i = 0; i < list.length; i += 1) {
+         containers[i] = docunment.getElementById(list[i]);
+       }
+       return function ()
+       {
+         for (int i = 0; i < container.length; i += 1) {
+           container[i].hidden = true;
+         }
+       }
+     }
 </script>
