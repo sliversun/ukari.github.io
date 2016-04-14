@@ -20,8 +20,12 @@ function regist_container_hide_controller(list)
   }
   return function (target)
   {
-    for (var i = 0; i < containers.length && target != containers[i]; i += 1) {
-      containers[i].hidden = true;
+    for (var i = 0; i < containers.length; i += 1) {
+      if (target != containers[i]) {
+        containers[i].hidden = true;
+      } else {
+        containers[i].hidden = false;
+      }
     }
   };
 }
