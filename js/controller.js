@@ -1,4 +1,4 @@
-wrap_request("GET", gists_url(), undefined, get_articles, document.getElementById("article_lists"));
+wrap_request("GET", gists_url(), undefined, undefined, get_articles, document.getElementById("article_lists"));
 
 function get_articles(data, target)
 {
@@ -27,7 +27,7 @@ function get_articles(data, target)
 
 function click_lists(gist_hash)
 {
-  wrap_request("GET", gist_url(gist_hash), undefined, get_article, document.getElementById("article_container"));
+  wrap_request("GET", gist_url(gist_hash), undefined, undefined, get_article, document.getElementById("article_container"));
 }
 
 function get_article(data, target)
