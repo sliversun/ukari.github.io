@@ -19,7 +19,12 @@ function base_request(method, url, data, processfn, target)
   var forsend;
   var dsturl;
   if (method.toUpperCase() == "GET") {
-    forsend = "data="+JSON.stringify(data);
+    var list = Object.keys(data);
+    var tmp = "";
+    for (var i = 0; i < list.length; i += 1) {
+      tmp += escape(list[i]) + "=" + escape(data[list[i]] + "&");
+    }
+    forsend = tmp;
     if (data != undefined) {
       dsturl = url+"?"+forsend;
     } else {
