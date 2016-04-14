@@ -43,16 +43,15 @@
        show_articles(articles, target);
        function show_articles(articles, target)
        {
-         var buf = "";
          for (var i = 0; i < articles.length; i += 1){
            var article = articles[i];
-           buf += divtag("article",
+           var buf = divtag("article",
                          divtag("title", article.title) +
                          divtag("description", article.description),
                          "click_lists",
                          article.id);
+           target.innerHTML += buf;
          }
-         target.innerHTML = buf;
        }
      }
 
