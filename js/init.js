@@ -1,7 +1,13 @@
 var hide_other_containers = regist_container_hide_controller(["article_lists", "article_container"]);
 var hide_other_containers_by_id = function (id) {hide_other_containers(document.getElementById(id));};
-wrap_request("GET", "http://"+window.location.host+"/config.json", undefined, load_config, document.getElementById("notification"));
-change_title();
+wrap_request("GET", "http://"+window.location.host+"/config.json", undefined, sequence_init, document.getElementById("notification"));
+
+function sequence_init(data, target)
+{
+  load_config(data, target);
+  change_title();
+}
+
 function load_config(data, target)
 {
   var list = Object.keys(data);
