@@ -28,6 +28,6 @@ function Article(file)
 function articlep(file)
 {
   var description = file["description"];
-  var shebang = description.substring(0, description.indexOf(" "));
-  return shebang == "#!unmj";
+  var shebang = "#!unmj";
+  return description.search("^" + shebang) == 0;
 }
