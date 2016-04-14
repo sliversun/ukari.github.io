@@ -45,12 +45,12 @@
        {
          var buf = "";
          for (var i = 0; i < articles.length; i += 1){
-           var a = articles[i];
+           var article = articles[i];
            buf += divtag("article",
-                         divtag("title", a.title) +
-                         divtag("description", a.description),
-                        "click_lists",
-                        a.id);
+                         divtag("title", article.title) +
+                         divtag("description", article.description),
+                         "click_lists",
+                         article.id);
          }
          target.innerHTML = buf;
        }
@@ -69,10 +69,10 @@
        {
          var buf = "";
          buf += divtag("article",
-                       divtag("title", a.title) +
-                       divtag("create_time", a.create_time) +
-                       divtag("update_time", a.update_time) +
-                       divtag("content", a.content));
+                       divtag("title", article.title) +
+                       divtag("create_time", article.create_time) +
+                       divtag("update_time", article.update_time) +
+                       divtag("content", article.content));
          target.innerHTML = buf;
        }
      }
