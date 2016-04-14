@@ -10,7 +10,7 @@ function divtag(name, content, listener, arg)
   if (listener_str == undefined) {
     listener_str = "";
   }
-  return "<div name=" + name + listener_str +">" + content + "</>";
+  return "<div name=" + name + listener_str +">" + content + "</div>";
 }
 
 function newline()
