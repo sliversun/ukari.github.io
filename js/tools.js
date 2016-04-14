@@ -16,7 +16,7 @@ function extend(des, src, override)
         return copy;
 }
 
-function getUTCTime(timestamp_str)
+function getUTCTime(time)
 {
-        return ((new Date(parseInt(timestamp_str))).toLocaleString());
+        return ((new Date("2016-04-13T19:55:29Z").toLocaleString());
 }
