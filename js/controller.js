@@ -46,17 +46,3 @@ function get_article(data, target)
     target.innerHTML = buf;
   }
 }
-
-function regist_container_hide_controller(list)
-{
-  var containers = new Array();
-  for (var i = 0; i < list.length; i += 1) {
-    containers[i] = document.getElementById(list[i]);
-  }
-  return function (target)
-  {
-    for (var i = 0; i < containers.length && target != containers[i]; i += 1) {
-      containers[i].hidden = true;
-    }
-  };
-}
