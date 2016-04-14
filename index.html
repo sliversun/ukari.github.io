@@ -136,12 +136,12 @@
      function regist_container_hide_controller(list)
      {
        var containers = new Array();
-       for (int i = 0; i < list.length; i += 1) {
+       for (var i = 0; i < list.length; i += 1) {
          containers[i] = docunment.getElementById(list[i]);
        }
        return function ()
        {
-         for (int i = 0; i < container.length; i += 1) {
+         for (var i = 0; i < container.length; i += 1) {
            container[i].hidden = true;
          }
        }
