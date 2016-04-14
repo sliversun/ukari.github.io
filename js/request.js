@@ -50,7 +50,6 @@ function base_request(method, url, data, processfn, target)
   }
   var xhttp=new XMLHttpRequest();
   xhttp.open(method, dsturl, true);
-  xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
   console.log("dst: "+dsturl);
   xhttp.onreadystatechange=function ()
   {
