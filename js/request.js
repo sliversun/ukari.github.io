@@ -22,7 +22,10 @@ function base_request(method, url, headers, data, processfn, target)
     var list = Object.keys(data);
     var tmp = "";
     for (var i = 0; i < list.length; i += 1) {
-      tmp += escape(list[i]) + "=" + escape(data[list[i]] + "&");
+      tmp += escape(list[i]) + "=" + escape(data[list[i]]);
+      if (i != list.length) {
+        tmp += "&";
+      }
     }
     forsend = tmp;
     if (data != undefined) {
