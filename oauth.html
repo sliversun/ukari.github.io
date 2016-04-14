@@ -1,0 +1,15 @@
+<html>
+  <div id="oauth"></div>
+</html>
+<script src="js/js.cookie.js" type="text/javascript"></script>
+<script src="js/js2html.js" type="text/javascript"></script>
+<script language="javascript">
+
+  console.log(window.location.search);
+  var query = window.location.search;
+  var tmp = "code=";
+  var code = query.substring(query.search(tmp) + tmp.length, query.length);
+  var access_token_url = "https://github.com/login/oauth/access_token?client_id=c049948d2bc20d67e5cf&…_secret=bf09882e177a156c1a9649506cb80f34338d06e8&code=" + code;
+  var target = document.getElementById("oauth");
+  target.innerHTML = atag(access_token_url, "点击认证");
+</script>

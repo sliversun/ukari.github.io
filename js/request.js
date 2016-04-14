@@ -14,7 +14,7 @@ function base_callback(processfn, data, target)
   }
 }
 
-function base_request(method, url, headers, data, processfn, target)
+function base_request(method, url, data, processfn, target)
 {
   var forsend;
   var dsturl;
@@ -50,9 +50,6 @@ function base_request(method, url, headers, data, processfn, target)
   }
   var xhttp=new XMLHttpRequest();
   xhttp.open(method, dsturl, true);
-  if (headers != undefined) {
-    set_http_header(xhttp, headers);
-  }
   console.log("dst: "+dsturl);
   xhttp.onreadystatechange=function ()
   {
@@ -73,15 +70,7 @@ function base_request(method, url, headers, data, processfn, target)
   console.log("send:\n\t"+forsend);
 }
 
-function set_http_header(xhttp, headers)
-{
-  var list = Object.keys(headers);
-  for (var i = 0;i < list.length; i += 1) {
-    xhttp.setRequestHeader(list[i], headers[list[i]]);
-  }
-}
-
-function wrap_request(method, url, headers, data, processfn, target)
+function wrap_request(method, url, data, processfn, target)
 {
   var wrap_data;
   if (data == undefined) {
@@ -89,5 +78,5 @@ function wrap_request(method, url, headers, data, processfn, target)
   } else {
     wrap_data = extend(data, random_arg());
   }
-  base_request(method, url, headers, wrap_data, processfn, target);
+  base_request(method, url, wrap_data, processfn, target);
 }

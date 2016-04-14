@@ -13,6 +13,13 @@ function divtag(name, content, listener, arg)
   return "<div name=" + name + listener_str +">" + content + "</div>";
 }
 
+function atag(url, content)
+{
+  var str;
+  str = "<a href=" + url + ">" + content + "</a>";
+  return str;
+}
+
 function newline()
 {
   return "<br>";
