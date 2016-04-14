@@ -38,6 +38,7 @@ function get_article(data, target)
   function show_article(article, target)
   {
     var buf = "";
+    buf += divtag("back", "返回", "hide_other_containers", document.getElementById("article_lists"));
     buf += divtag("article",
                   divtag("title", article.title) +
                   divtag("create_time", article.create_time) +
