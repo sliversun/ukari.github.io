@@ -1,5 +1,8 @@
 <html>
   <div id="oauth"></div>
+  <div id="access_file_hint">打开刚刚下载的access_token</div>
+  <input type="file" id="access_file" onchange="load_file(this.files, 'result')"/>
+  <div id="result"></div>
 </html>
 <script src="js/js.cookie.js" type="text/javascript"></script>
 <script src="js/js2html.js" type="text/javascript"></script>
@@ -13,4 +16,32 @@
   var access_token_url = "https://github.com/login/oauth/access_token?client_id=c049948d2bc20d67e5cf&client_secret=bf09882e177a156c1a9649506cb80f34338d06e8&code=" + code;
   var target = document.getElementById("oauth");
   target.innerHTML = atag(access_token_url, "点击下载access_token");
+  function load_file(files, target)
+  {
+    target = document.getElementById(target);
+    if (files.length != 0) {
+      var file = files[0];
+      var reader = new FileReader();
+      reader.onload = function()
+      {
+        if (check_access_token(this.result) == true) {
+          target.innerHTML = "认证成功";
+        } else {
+          target.innerHTML = "认证失败";
+        }
+      }
+      reader.readAsText(file);
+    }
+  }
+
+function check_access_token(result)
+{
+  if (result.search("error") == 0) {
+    return false;
+  } else {
+    var access_token = result.substring(result.search("access_token=") + "access_token=".length, result.indexOf("&"));;
+    Cookies.set("access_token", access_token);
+    return true;
+  }
+}
 </script>
