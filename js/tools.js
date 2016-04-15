@@ -25,3 +25,8 @@ function random_arg()
 {
   return {"avoidpending":Math.random().toString()};
 }
+
+function host_url()
+{
+  return "http://"+window.location.host;
+}

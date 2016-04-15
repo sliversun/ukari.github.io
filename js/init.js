@@ -2,11 +2,6 @@ var hide_other_containers = regist_container_hide_controller(["article_lists", "
 var hide_other_containers_by_id = function (id) {hide_other_containers(document.getElementById(id));};
 wrap_request("GET", host_url() + "/config.json", undefined, sequence_init, document.getElementById("notification"));
 
-function host_url()
-{
-  return "http://"+window.location.host;
-}
-
 function sequence_init(data, target)
 {
   load_config(data, target);
