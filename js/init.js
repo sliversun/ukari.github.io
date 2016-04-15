@@ -5,6 +5,7 @@ wrap_request("GET", "http://"+window.location.host+"/config.json", undefined, se
 function sequence_init(data, target)
 {
   load_config(data, target);
+  check_oauth();
   change_title();
 }
 
@@ -17,6 +18,21 @@ function load_config(data, target)
     target.innerHTML += "load config: "+v+" = "+data[v]+newline();
   }
 }
+
+function check_oauth()
+{
+  var access_token = Cookies.get("access_token");
+  if (access_token != undefined) {
+    var oauth = document.getElementById("oauth");
+    base_request("GET", "https://api.github.com/user", {access_token: access_token}, show_loginname, oauth);
+  }
+
+  function show_loginname(data, target)
+  {
+    target.innerHTML = data["login"];
+  }
+}
+
 
 function regist_container_hide_controller(list)
 {
