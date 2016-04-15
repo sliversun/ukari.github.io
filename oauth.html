@@ -25,9 +25,9 @@
       reader.onload = function()
       {
         if (check_access_token(this.result) == true) {
-          target.innerHTML = "认证成功";
+          target.innerHTML = "认证成功，返回" + atag(host_url(), "主页");
         } else {
-          target.innerHTML = "认证失败";
+          target.innerHTML = "认证失败，返回" + atag(host_url(), "主页");
         }
       }
       reader.readAsText(file);
