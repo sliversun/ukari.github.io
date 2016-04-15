@@ -59,10 +59,7 @@ function base_request(method, url, data, processfn, target)
         console.log("received: \n\t"+data);
         base_callback(processfn, data, target);
       } else {
-        if (target != undefined){
-          target.innerHTML = "";
-        }
-        console.log("can't connect to server");
+        console.log("can't connect to server, status: " + xhttp.status);
       }
     }
   };
