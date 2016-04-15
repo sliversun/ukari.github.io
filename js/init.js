@@ -29,7 +29,7 @@ function check_oauth()
 
   function show_loginname(data, target)
   {
-    target.innerHTML = data["login"];
+    target.innerHTML = data["login"] + "|已登陆";
   }
 }
 
