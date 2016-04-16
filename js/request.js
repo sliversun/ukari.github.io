@@ -50,6 +50,7 @@ function base_request(method, url, data, processfn, target)
   }
   var xhttp=new XMLHttpRequest();
   xhttp.open(method, dsturl, true);
+  xhttp.withCredentials = false;
   console.log("dst: "+dsturl);
   xhttp.onreadystatechange=function ()
   {
