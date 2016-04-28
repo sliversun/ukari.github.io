@@ -2,6 +2,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   </head>
+  <a href="https://baidu.com">百度首页</a>
   <div id="oauth">正在生成access_token下载链接</div>
   <div id="access_file_hint">打开下载的access_token</div>
   <input type="file" id="access_file" onchange="load_file(this.files, 'result')"/>
@@ -20,7 +21,7 @@
   var access_token_url = "https://github.com/login/oauth/access_token?client_id=c049948d2bc20d67e5cf&client_secret=bf09882e177a156c1a9649506cb80f34338d06e8&code=" + code;
   var target = document.getElementById("oauth");
   target.innerHTML = atag(access_token_url, "点击下载access_token");
-  base_request("GET", "https://github.com/login/oauth/access_token", {client_id:"c049948d2bc20d67e5cf",client_secret:"bf09882e177a156c1a9649506cb80f34338d06e8",code:code});
+  //base_request("GET", "https://github.com/login/oauth/access_token", {client_id:"c049948d2bc20d67e5cf",client_secret:"bf09882e177a156c1a9649506cb80f34338d06e8",code:code});
   function load_file(files, target)
   {
     target = document.getElementById(target);
