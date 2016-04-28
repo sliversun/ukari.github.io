@@ -13,10 +13,14 @@ function divtag(name, content, listener, arg)
   return "<div name=" + name + listener_str +">" + content + "</div>";
 }
 
-function atag(url, content)
+function atag(url, content, download)
 {
   var str;
-  str = "<a href=" + url + ">" + content + "</a>";
+  if (download != undefined) {
+    str = "<a href=" + url + " download=" +download+ ">" + content + "</a>";
+  } else {
+    str = "<a href=" + url + ">" + content + "</a>";
+  }
   return str;
 }
 
