@@ -1,5 +1,5 @@
 # UnMJ
-Ukari no Mahou Jitsuken, a experiment for light blog.
+Ukari no Mahou Jikken, a experiment for light blog.
 
 ## Introduction
 This is a blog which parasitics on other stuff like github.
